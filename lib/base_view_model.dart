@@ -4,13 +4,13 @@ import 'package:network_mvvm/network.dart';
 
 
 class BaseViewModel<T> extends ChangeNotifier {
-  NetWork _netWork = NetWork.getInstance();
   bool _isDisposed = false;
   T _model;
   String _tag;
   BaseViewModel({String tag, T model}) : _tag = tag, _model = model;
   bool get isDisposed => this._isDisposed;
   String get tag =>  _tag ?? this.runtimeType.toString();
+  NetWork get _netWork => NetWork.getInstance();
   
   @override
   void notifyListeners() {
